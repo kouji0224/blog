@@ -1,34 +1,16 @@
 <!DOCTYPE html>
 <html>
-  {% include head.html %}
-  <body>
-    {% include nav.html %}
+  <head>
+    {% include meta.html %}
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+      <script type="text/javascript">window.baseurl = '{{ site.url }}';</script>
+      {% include css.html %}
+  </head>
 
-    {% if page.toc==true %}
-      <aside class="toc">
-        {% include toc.html html=content %}
-      </aside>
-    {% endif %}
-
-    <div id="main" role="main" class="wrapper-content">
-      <div class="container">
-        {{ content }}
-      </div>
-    </div>
-
+  <body class="home overflow-hidden">
+    {% include header.html %}
+    {% include main.html %}
+    {% include js.html %}
     {% include analytics.html %}
   </body>
-
-  {% if page.toc==true %}
-  <script>
-    document.getElementById("main").classList.add("withtoc");
-  </script>
-  {% endif %}
-
-  <div class="wrapper-footer-mobile">
-    <footer class="footer">
-      {% include footer.html %}
-    </footer>
-
-
 </html>
